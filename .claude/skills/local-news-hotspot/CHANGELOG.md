@@ -1,5 +1,62 @@
 # 技能更新日志
 
+## 版本 1.2 - 2026-03-08
+
+### 🎨 重构：遵循 skill-development 最佳实践
+
+**变更内容**：
+
+#### 结构优化（Progressive Disclosure）
+- ✅ **SKILL.md 精简**：从 267 行（~3,500 字）减少到 ~1,800 字
+- ✅ **创建 references/ 目录**：
+  - `references/rss-sources.md` - 完整的 RSS 数据源配置（150 行）
+  - `references/scoring-algorithm.md` - 详细的评分算法文档（300+ 行）
+- ✅ **渐进式加载**：核心流程在 SKILL.md，详细内容在 references/
+
+#### 描述改进
+- ✅ **第三人称格式**：
+  - 旧: "采集并分析 worldmonitor 项目的实时新闻数据源..."
+  - 新: "This skill should be used when the user asks to..."
+- ✅ **具体触发短语**：添加了 "show hot news", "latest news", "breaking news" 等明确触发词
+
+#### 写作风格
+- ✅ **祈使句/不定式**：全文使用命令式语气，避免第二人称
+- ✅ **清晰的资源引用**：明确指向 references/ 文件
+
+#### 版本号
+- 从 1.1 升级到 1.2
+
+### 📝 文档结构
+
+**新的文件组织**：
+```
+.claude/skills/local-news-hotspot/
+├── SKILL.md (精简版，1,800 字)
+├── README.md
+├── CHANGELOG.md
+├── evals/
+│   └── evals.json
+└── references/
+    ├── rss-sources.md (完整数据源配置)
+    └── scoring-algorithm.md (详细评分算法)
+```
+
+### 🎯 影响
+
+**优势**:
+1. ✅ 符合 skill-development 最佳实践
+2. ✅ 更好的可维护性（关注点分离）
+3. ✅ 更快的加载速度（SKILL.md 更小）
+4. ✅ 更准确的触发（第三人称 + 具体短语）
+5. ✅ 更好的可扩展性（详细内容在 references/）
+
+**对比 v1.1**:
+- SKILL.md 大小：267 行 → ~120 行（减少 55%）
+- 触发准确性：提升（添加了具体触发短语）
+- 文档组织：单文件 → 多文件分层结构
+
+---
+
 ## 版本 1.1 - 2026-03-08
 
 ### 🔄 数据源更新：对齐 worldmonitor 实际 URLs
